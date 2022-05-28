@@ -1,0 +1,52 @@
+@import '../../../node_modules/bootstrap/scss/bootstrap-utilities.scss';
+@import '../../../node_modules/bootstrap/scss/_forms.scss';
+@import '../../../node_modules/bootstrap/scss/bootstrap-grid.scss';
+
+
+html{
+    overflow-x: hidden;
+}
+
+div#wpbody-content .thinkus__admin__container{
+    padding: 40px 15px;
+    font-size: 16px;
+    max-width: 960px;
+    margin: auto;
+    h1{
+        font-size: 3em;
+        line-height: 1.5em;
+        margin: 0;
+        margin-bottom: 20px;
+
+    }
+    h2{
+        font-size: 2em;
+        margin: 0;
+        line-height: 1.5em;
+        margin-bottom: 20px;
+    }
+    p{
+        font-size: 1.2em;
+        line-height: 1.5em;
+        margin: 0;
+        margin-bottom: 20px;
+    }
+    .margin-auto{
+        display: block;
+        margin: auto;
+    }
+    .form-switch{
+        margin: 0;
+        padding-left: 0;
+    }
+    .form-switch .form-check-input {
+        width: 5em;
+        margin-left: 0;
+      
+     
+        border-radius: 2em;
+        transition: background-position 0.15s ease-in-out;
+        background-repeat: no-repeat;
+        height: 40px;
+    }
+}
