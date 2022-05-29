@@ -5,6 +5,8 @@ $header_nav_menu = wp_nav_menu( [
 	'echo' => false,
 ] );
 $is_white_color = get_field('navegador_en_texto_blanco')?'white-menu':'';
+
+
 ?>
 <?php if ( $header_nav_menu ) : ?>
 		<div class="navigation-section <?php  echo $is_white_color; ?>">

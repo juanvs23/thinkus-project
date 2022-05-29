@@ -1,5 +1,43 @@
 const footerForm = document.querySelector("#footer-form");
 
+const formLoading = (idForm, action) => {
+  const loading = document.createElement("div");
+  const loadingText = document.createElement("p");
+  const loadingTextContent = document.createTextNode("Cargando...");
+  const savingTextContent = document.createTextNode("Salvado!");
+  const ErrorTextContent = document.createTextNode("Error...");
+
+  loading.setAttribute("class", "loading-container");
+  if (action == "show") {
+    loading.setAttribute("id", "loading");
+    loadingText.setAttribute("class", "loading-text");
+    loading.appendChild(loadingText);
+    loadingText.appendChild(loadingTextContent);
+    idForm.appendChild(loading);
+  }
+  if (action == "save") {
+    if (!document.getElementById("loading")) {
+      loading.setAttribute("id", "loading");
+      loadingText.setAttribute("class", "loading-text");
+      loading.appendChild(loadingText);
+      loadingText.appendChild(savingTextContent);
+      idForm.appendChild(loading);
+    } else {
+      idForm.getElementById("loading").remove();
+      loading.setAttribute("id", "loading");
+      loadingText.setAttribute("class", "loading-text");
+      loading.appendChild(loadingText);
+      loadingText.appendChild(savingTextContent);
+      idForm.appendChild(loading);
+    }
+  }
+  if (action == "error") {
+  }
+  if (action == "delete") {
+    idForm.getElementById("loading").remove();
+  }
+};
+
 if (footerForm) {
   footerForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -10,6 +48,7 @@ if (footerForm) {
 
     if (getFooterId.value != "") {
       const url = thinkus_admin_ajax.admin_ajax;
+      formLoading(footerForm, "show");
       const formData = new FormData();
       formData.append("action", action);
       formData.append("security", security);
@@ -20,7 +59,9 @@ if (footerForm) {
         body: formData,
       })
         .then((res) => res.json())
-        .then((res) => console.log(res));
+        .then((res) => {
+          formLoading(footerForm, "save");
+        });
     } else {
     }
   });

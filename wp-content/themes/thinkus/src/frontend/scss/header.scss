@@ -1,3 +1,10 @@
+header#site-header{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
 .thinkus-site-header {
     width: 100%;
     z-index: 9999;
@@ -52,6 +59,7 @@
                    
                 }
                 &:focus,&:focus-visible{
+                    background: transparent;
                     outline: none;
                 }
                 span {
@@ -196,6 +204,18 @@
         }
     }
 }
+.blog{
+    .thinkus-site-header{
+
+        .navigation-section{
+            li{
+                a{
+                    color:$white;
+                }
+            }
+        }
+    }
+}
 .header{
     .navigation-section.white-menu{
         .site-navigation{
@@ -244,6 +264,70 @@
            } 
 
             }
+        }
+    }
+}
+.thinkus-site-header{
+    .navigation-section{
+        ul{
+            li{
+                a{
+                    
+                    color: $color-base;
+                }
+                &:hover,&.current-menu-item{
+                    
+                    a{
+                        color:$light-blue;
+                       
+                    }
+                }
+            }
+        }
+    }
+    .navigation-section{
+        ul{
+            li{
+                &:hover,&.current-menu-item{
+                    a{
+                        &::after{
+                            background: $light-blue;
+                        }
+                    }
+                    
+                }
+                a{
+                    &::after{
+                       @media (min-width:1025px) {
+                        content: "";
+                        display: block;
+                        height: 4px;
+                        width: 20px;
+                        margin: auto;
+                        background: transparent;
+                       }
+
+                    }
+                }
+                ul{
+                    li{
+                        a{
+                            &::after{
+                               display: none;
+
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
+nav.site-navigation.opened{
+    ul{
+        @media(max-width:1024px){
+            flex-direction: column;
         }
     }
 }
